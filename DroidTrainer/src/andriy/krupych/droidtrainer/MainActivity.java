@@ -2,6 +2,8 @@ package andriy.krupych.droidtrainer;
 
 import java.util.Locale;
 
+import com.matthieu.ViewPagerParallax;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -29,7 +31,7 @@ public class MainActivity extends FragmentActivity {
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    ViewPager mViewPager;
+    ViewPagerParallax mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +44,10 @@ public class MainActivity extends FragmentActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager = (ViewPagerParallax) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
+        mViewPager.set_max_pages(mSectionsPagerAdapter.getCount());
+        mViewPager.setBackgroundAsset(R.raw.fitness);
     }
 
     @Override
